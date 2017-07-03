@@ -41,7 +41,7 @@ typedef void(^stateValueSuccessReturn)(NSData *);
  扫描的设备种类
  */
 @property(strong, nonatomic, nullable) NSMutableArray<__kindof NSString *> *scaningPreFix;
-
+@property(strong, nonatomic, nullable , readwrite) NSMutableArray <__kindof NSDictionary <NSString *,id>*> *peripheralsInfo;
 @end
 
 @implementation BluetoothManager

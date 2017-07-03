@@ -85,7 +85,7 @@ typedef void(^detectDevice)(NSDictionary *__nullable infoDic);
 /**
  周围设备
  */
-@property(strong, nonatomic, nullable) NSMutableArray <__kindof NSDictionary *> *peripheralsInfo;
+@property(strong, nonatomic, nullable , readonly) NSMutableArray <__kindof NSDictionary <NSString *,id>*> *peripheralsInfo;
 
 
 /**

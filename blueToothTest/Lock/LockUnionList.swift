@@ -15,13 +15,23 @@ class LockUnionList: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        devices =  UserDefaults.standard.array(forKey: self.deviceID(with: self.deviceInfo)) as! Array<Dictionary<String, String>>
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        devices =  UserDefaults.standard.array(forKey: self.deviceID(with: self.deviceInfo)) as! Array<Dictionary<String, String>>
+        self.tableView.reloadData()
+    }
+    
+    func deviceFullID(with infoDic:Dictionary<String, Any>) -> String! {
+        let advdic=infoDic[AdvertisementData] as! NSDictionary
+        return advdic.object(forKey: "kCBAdvDataLocalName") as! String?
     }
     
     func deviceID(with infoDic:Dictionary<String, Any>) -> String! {
@@ -33,6 +43,9 @@ class LockUnionList: UITableViewController {
     }
     // MARK: - Table view data source
 
+    @IBAction func addUnion(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "lockaddunion", sender: nil)
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return devices.count
@@ -43,57 +56,42 @@ class LockUnionList: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
         let deviceID = cell.viewWithTag(1001) as! UILabel
         let deviceStatus = cell.viewWithTag(1001) as! UILabel
-        
+        deviceID.text = devices[indexPath.row]["deviceID"]
+        deviceStatus.text = devices[indexPath.row]["deviceStatus"]
         
         // Configure the cell...
 
         return cell
     }
     
-
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            devices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let target :LockAddUnionController = segue.destination as! LockAddUnionController
+        target.devices = self.devices
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

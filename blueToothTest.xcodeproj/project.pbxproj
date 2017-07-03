@@ -19,6 +19,7 @@
 		3C7C454B1DE8403200A5718C /* SendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C454A1DE8403100A5718C /* SendController.swift */; };
 		64499D2F1F050068006D4604 /* AppDelegate+BlueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 64499D2E1F050068006D4604 /* AppDelegate+BlueTest.m */; };
 		64499D311F0501A4006D4604 /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64499D301F0501A4006D4604 /* LockViewController.swift */; };
+		648CAA271F0A2D6C0018890E /* LockAddUnionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */; };
 		64E60DE61F0A27AF00FCFD4F /* LockUnionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		64499D2D1F050068006D4604 /* AppDelegate+BlueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BlueTest.h"; sourceTree = "<group>"; };
 		64499D2E1F050068006D4604 /* AppDelegate+BlueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BlueTest.m"; sourceTree = "<group>"; };
 		64499D301F0501A4006D4604 /* LockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
+		648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAddUnionController.swift; sourceTree = "<group>"; };
 		64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockUnionList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 			children = (
 				64499D301F0501A4006D4604 /* LockViewController.swift */,
 				64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */,
+				648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */,
 			);
 			path = Lock;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				3C009E511DE81510002F15BE /* AppDelegate.m in Sources */,
 				3C009E4E1DE81510002F15BE /* main.m in Sources */,
 				3C74C91B1EFB7B6E00E51CE4 /* NSString+StringOperation.m in Sources */,
+				648CAA271F0A2D6C0018890E /* LockAddUnionController.swift in Sources */,
 				3C74C91A1EFB7B6E00E51CE4 /* BluetoothManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
