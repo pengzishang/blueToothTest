@@ -17,10 +17,6 @@
 		3C74C91B1EFB7B6E00E51CE4 /* NSString+StringOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C74C9191EFB7B6E00E51CE4 /* NSString+StringOperation.m */; };
 		3C74C91D1EFB7B7700E51CE4 /* DeviceTypeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C74C91C1EFB7B7700E51CE4 /* DeviceTypeList.plist */; };
 		3C7C454B1DE8403200A5718C /* SendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C454A1DE8403100A5718C /* SendController.swift */; };
-		64499D2F1F050068006D4604 /* AppDelegate+BlueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 64499D2E1F050068006D4604 /* AppDelegate+BlueTest.m */; };
-		64499D311F0501A4006D4604 /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64499D301F0501A4006D4604 /* LockViewController.swift */; };
-		648CAA271F0A2D6C0018890E /* LockAddUnionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */; };
-		64E60DE61F0A27AF00FCFD4F /* LockUnionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +36,9 @@
 		3C74C9191EFB7B6E00E51CE4 /* NSString+StringOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringOperation.m"; sourceTree = "<group>"; };
 		3C74C91C1EFB7B7700E51CE4 /* DeviceTypeList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceTypeList.plist; sourceTree = "<group>"; };
 		3C7C454A1DE8403100A5718C /* SendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendController.swift; sourceTree = "<group>"; };
-		64499D2D1F050068006D4604 /* AppDelegate+BlueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BlueTest.h"; sourceTree = "<group>"; };
-		64499D2E1F050068006D4604 /* AppDelegate+BlueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BlueTest.m"; sourceTree = "<group>"; };
-		64499D301F0501A4006D4604 /* LockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
-		648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAddUnionController.swift; sourceTree = "<group>"; };
-		64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockUnionList.swift; sourceTree = "<group>"; };
+		647E5A361F0B3B6A00B5B527 /* LockUnionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockUnionList.swift; path = blueToothTest/Lock/LockUnionList.swift; sourceTree = SOURCE_ROOT; };
+		647E5A371F0B3B6A00B5B527 /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockViewController.swift; path = blueToothTest/Lock/LockViewController.swift; sourceTree = SOURCE_ROOT; };
+		647E5A381F0B3B6A00B5B527 /* LockAddUnionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockAddUnionController.swift; path = blueToothTest/Lock/LockAddUnionController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,14 +71,17 @@
 		3C009E4B1DE8150F002F15BE /* blueToothTest */ = {
 			isa = PBXGroup;
 			children = (
-				64E60DE31F0A269700FCFD4F /* Lock */,
+				647E5A351F0B3B4800B5B527 /* Lock */,
 				3C009E6B1DE81FC2002F15BE /* lib */,
-				64499D2D1F050068006D4604 /* AppDelegate+BlueTest.h */,
-				64499D2E1F050068006D4604 /* AppDelegate+BlueTest.m */,
+				3C009E4F1DE81510002F15BE /* AppDelegate.h */,
+				3C009E501DE81510002F15BE /* AppDelegate.m */,
 				3C009E551DE81510002F15BE /* Main.storyboard */,
+				3C009E581DE81510002F15BE /* Assets.xcassets */,
 				3C009E5A1DE81510002F15BE /* LaunchScreen.storyboard */,
+				3C009E5D1DE81510002F15BE /* Info.plist */,
 				3C009E4C1DE8150F002F15BE /* Supporting Files */,
 				3C009E671DE8179A002F15BE /* TestController.swift */,
+				3C009E661DE81799002F15BE /* blueToothTest-Bridging-Header.h */,
 				3C7C454A1DE8403100A5718C /* SendController.swift */,
 			);
 			path = blueToothTest;
@@ -93,11 +90,6 @@
 		3C009E4C1DE8150F002F15BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3C009E5D1DE81510002F15BE /* Info.plist */,
-				3C009E581DE81510002F15BE /* Assets.xcassets */,
-				3C009E4F1DE81510002F15BE /* AppDelegate.h */,
-				3C009E501DE81510002F15BE /* AppDelegate.m */,
-				3C009E661DE81799002F15BE /* blueToothTest-Bridging-Header.h */,
 				3C009E4D1DE8150F002F15BE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -115,14 +107,15 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
-		64E60DE31F0A269700FCFD4F /* Lock */ = {
+		647E5A351F0B3B4800B5B527 /* Lock */ = {
 			isa = PBXGroup;
 			children = (
-				64499D301F0501A4006D4604 /* LockViewController.swift */,
-				64E60DE51F0A27AF00FCFD4F /* LockUnionList.swift */,
-				648CAA261F0A2D6C0018890E /* LockAddUnionController.swift */,
+				647E5A381F0B3B6A00B5B527 /* LockAddUnionController.swift */,
+				647E5A361F0B3B6A00B5B527 /* LockUnionList.swift */,
+				647E5A371F0B3B6A00B5B527 /* LockViewController.swift */,
 			);
-			path = Lock;
+			name = Lock;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,13 +144,13 @@
 		3C009E411DE8150F002F15BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "彭子上";
 				TargetAttributes = {
 					3C009E481DE8150F002F15BE = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = LD2KPD7UX3;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -200,14 +193,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C009E681DE8179A002F15BE /* TestController.swift in Sources */,
-				64499D2F1F050068006D4604 /* AppDelegate+BlueTest.m in Sources */,
 				3C7C454B1DE8403200A5718C /* SendController.swift in Sources */,
-				64499D311F0501A4006D4604 /* LockViewController.swift in Sources */,
-				64E60DE61F0A27AF00FCFD4F /* LockUnionList.swift in Sources */,
 				3C009E511DE81510002F15BE /* AppDelegate.m in Sources */,
 				3C009E4E1DE81510002F15BE /* main.m in Sources */,
 				3C74C91B1EFB7B6E00E51CE4 /* NSString+StringOperation.m in Sources */,
-				648CAA271F0A2D6C0018890E /* LockAddUnionController.swift in Sources */,
 				3C74C91A1EFB7B6E00E51CE4 /* BluetoothManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,9 +232,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -253,11 +240,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,9 +280,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -307,11 +288,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -331,7 +308,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -343,7 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LD2KPD7UX3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = blueToothTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -357,7 +333,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "blueToothTest/blueToothTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -368,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = LD2KPD7UX3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = blueToothTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,7 +357,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "blueToothTest/blueToothTest-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
