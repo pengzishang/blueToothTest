@@ -40,6 +40,8 @@
 		647E5A361F0B3B6A00B5B527 /* LockUnionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockUnionList.swift; path = blueToothTest/Lock/LockUnionList.swift; sourceTree = SOURCE_ROOT; };
 		647E5A381F0B3B6A00B5B527 /* LockAddUnionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockAddUnionController.swift; path = blueToothTest/Lock/LockAddUnionController.swift; sourceTree = SOURCE_ROOT; };
 		64DA151A1F0B408B008E76FE /* LockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LockViewController.swift; path = blueToothTest/Lock/LockViewController.swift; sourceTree = SOURCE_ROOT; };
+		64DA151D1F0B435E008E76FE /* AppDelegate+BlueTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BlueTest.m"; sourceTree = "<group>"; };
+		64DA151E1F0B435E008E76FE /* AppDelegate+BlueTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BlueTest.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,17 +74,13 @@
 		3C009E4B1DE8150F002F15BE /* blueToothTest */ = {
 			isa = PBXGroup;
 			children = (
+				64DA151E1F0B435E008E76FE /* AppDelegate+BlueTest.h */,
+				64DA151D1F0B435E008E76FE /* AppDelegate+BlueTest.m */,
+				64DA151C1F0B42D4008E76FE /* Lib */,
 				647E5A351F0B3B4800B5B527 /* Lock */,
-				3C009E6B1DE81FC2002F15BE /* lib */,
-				3C009E4F1DE81510002F15BE /* AppDelegate.h */,
-				3C009E501DE81510002F15BE /* AppDelegate.m */,
 				3C009E551DE81510002F15BE /* Main.storyboard */,
-				3C009E581DE81510002F15BE /* Assets.xcassets */,
-				3C009E5A1DE81510002F15BE /* LaunchScreen.storyboard */,
-				3C009E5D1DE81510002F15BE /* Info.plist */,
 				3C009E4C1DE8150F002F15BE /* Supporting Files */,
 				3C009E671DE8179A002F15BE /* TestController.swift */,
-				3C009E661DE81799002F15BE /* blueToothTest-Bridging-Header.h */,
 				3C7C454A1DE8403100A5718C /* SendController.swift */,
 			);
 			path = blueToothTest;
@@ -91,21 +89,15 @@
 		3C009E4C1DE8150F002F15BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3C009E4F1DE81510002F15BE /* AppDelegate.h */,
+				3C009E501DE81510002F15BE /* AppDelegate.m */,
+				3C009E581DE81510002F15BE /* Assets.xcassets */,
+				3C009E5A1DE81510002F15BE /* LaunchScreen.storyboard */,
+				3C009E5D1DE81510002F15BE /* Info.plist */,
+				3C009E661DE81799002F15BE /* blueToothTest-Bridging-Header.h */,
 				3C009E4D1DE8150F002F15BE /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3C009E6B1DE81FC2002F15BE /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				3C74C9161EFB7B6E00E51CE4 /* BluetoothManager.h */,
-				3C74C9171EFB7B6E00E51CE4 /* BluetoothManager.m */,
-				3C74C9181EFB7B6E00E51CE4 /* NSString+StringOperation.h */,
-				3C74C9191EFB7B6E00E51CE4 /* NSString+StringOperation.m */,
-				3C74C91C1EFB7B7700E51CE4 /* DeviceTypeList.plist */,
-			);
-			name = lib;
 			sourceTree = "<group>";
 		};
 		647E5A351F0B3B4800B5B527 /* Lock */ = {
@@ -116,7 +108,18 @@
 				647E5A361F0B3B6A00B5B527 /* LockUnionList.swift */,
 			);
 			name = Lock;
-			path = "New Group";
+			sourceTree = "<group>";
+		};
+		64DA151C1F0B42D4008E76FE /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				3C74C9161EFB7B6E00E51CE4 /* BluetoothManager.h */,
+				3C74C9171EFB7B6E00E51CE4 /* BluetoothManager.m */,
+				3C74C9181EFB7B6E00E51CE4 /* NSString+StringOperation.h */,
+				3C74C9191EFB7B6E00E51CE4 /* NSString+StringOperation.m */,
+				3C74C91C1EFB7B7700E51CE4 /* DeviceTypeList.plist */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
