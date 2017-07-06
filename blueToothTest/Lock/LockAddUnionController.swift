@@ -9,38 +9,46 @@
 import UIKit
 
 class LockAddUnionController: UITableViewController {
+    ///数据库中数据
     var devices = Array<Dictionary<String, String>>.init()
-    var deviceInfo = Dictionary<String, Any>.init()
+    var deviceInfo = Dictionary<String, Any>.init()//锁的信息
     var notExist = Array<Dictionary<String, Any>>.init()
+    
+    /// 周边设备
     let allDevice = BluetoothManager.getInstance()?.peripheralsInfo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        allDevice?.forEach({ (deviceInfo) in
-            let deviceTypeString = self.deviceType(with: deviceInfo as! Dictionary<String, Any>)
-            let deviceTypeInt = Int(deviceTypeString!)
-            guard deviceTypeInt! <= 5 else
+        print(deviceInfo)
+        allDevice?.forEach({ (singleDeviceInfo) in
+            
+            let deviceTypeString = self.deviceType(with: singleDeviceInfo as! Dictionary<String, Any>)
+            
+            if Int(deviceTypeString!) != nil
             {
+                let deviceTypeInt = Int(deviceTypeString!)
+                guard deviceTypeInt! <= 5 else
+                {
+                    return
+                }
+            }
+            
+            
+            let deviceFullName = self.deviceFullID(with: singleDeviceInfo as! Dictionary<String, Any>)
+            guard (deviceFullName?.contains("Name"))! else{
                 return
             }
             
-            let deviceFullName = self.deviceFullID(with: deviceInfo as! Dictionary<String, Any>)
             if devices.contains(where: { (dic) -> Bool in
                 return dic["deviceID"] == deviceFullName ? true:false
-            })
+            }) == false
             {
-                notExist.append(deviceInfo as! [String : Any])
+                notExist.append(singleDeviceInfo as! [String : Any])
             }
         })
         
         self.tableView.reloadData()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func deviceID(with infoDic:Dictionary<String, Any>) -> String! {
@@ -61,11 +69,15 @@ class LockAddUnionController: UITableViewController {
         return deviceType
     }
     
-    
     func deviceFullID(with infoDic:Dictionary<String, Any>) -> String! {
         let advdic=infoDic[AdvertisementData] as! NSDictionary
         return advdic.object(forKey: "kCBAdvDataLocalName") as! String?
     }
+    
+    func lockID() -> String! {
+        return self.deviceID(with: self.deviceInfo)
+    }
+    
     
     
     // MARK: - Table view data source
@@ -97,61 +109,23 @@ class LockAddUnionController: UITableViewController {
         }))
         alert.addAction(UIAlertAction.init(title: "确定", style: .default, handler: { (action) in
             
-            var deviceArray =  UserDefaults.standard.array(forKey: self.deviceFullID(with: self.notExist[indexPath.row])) as! Array<Dictionary<String, String>>
-            deviceArray.append(["deviceID":self.deviceFullID(with: self.notExist[indexPath.row]),"deviceStatus":(alert.textFields?.first?.text)!])
-            UserDefaults.standard.set(deviceArray, forKey: self.deviceID(with: self.deviceInfo))
+            if UserDefaults.standard.array(forKey: self.lockID()) as? Array<Dictionary<String, String>> != nil{
+                var deviceArray =  UserDefaults.standard.array(forKey: self.lockID()) as! Array<Dictionary<String, String>>
+                deviceArray.append(["deviceID":self.deviceFullID(with: self.notExist[indexPath.row]),"deviceStatus":(alert.textFields?.first?.text)!])
+                UserDefaults.standard.set(deviceArray, forKey: self.lockID())
+            }
+            else
+            {
+                var deviceArray = Array<Dictionary<String, String>>.init()
+                deviceArray.append(["deviceID":self.deviceFullID(with: self.notExist[indexPath.row]),"deviceStatus":(alert.textFields?.first?.text)!])
+                UserDefaults.standard.set(deviceArray, forKey: self.lockID())
+            }
+            
             self.navigationController?.popViewController(animated: true)
-            
-            
         }))
         self.present(alert, animated: true) {
             
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

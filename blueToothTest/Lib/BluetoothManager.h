@@ -134,6 +134,10 @@ typedef void(^detectDevice)(NSDictionary *__nullable infoDic);
                   success:(void (^ _Nullable)(NSData *_Nullable data))success
                      fail:(NSUInteger(^ _Nullable)(NSString * __nonnull statusCode))fail;
 
+- (void)queryDeviceStatus:(nonnull NSString *)deviceID retryTime:(NSUInteger)retryTime
+                  success:(void (^ _Nullable)(NSData *_Nullable data))success
+                     fail:(NSUInteger(^ _Nullable)(NSString * __nonnull statusCode))fail;
+
 
 /**
  发送单个控制指令
@@ -150,6 +154,12 @@ typedef void(^detectDevice)(NSDictionary *__nullable infoDic);
                           success:(void (^ _Nullable)(NSData *__nullable stateData))success
                              fail:(NSUInteger (^ _Nullable)(NSString *__nullable stateCode))fail;
 
+
+- (void)sendByteCommandWithString:(NSString *__nonnull)commandStr
+                         deviceID:(NSString *__nonnull)deviceID
+                         sendType:(SendType)sendType retryTime:(NSUInteger)retryTime
+                          success:(void (^ _Nullable)(NSData *__nullable stateData))success
+                             fail:(NSUInteger (^ _Nullable)(NSString *__nullable stateCode))fail;
 
 /**
  刷新多个设备状态

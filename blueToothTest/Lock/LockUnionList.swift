@@ -15,20 +15,30 @@ class LockUnionList: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        devices =  UserDefaults.standard.array(forKey: self.deviceID(with: self.deviceInfo)) as! Array<Dictionary<String, String>>
-        self.tableView.reloadData()
+        
+        if UserDefaults.standard.array(forKey: self.deviceID(with: self.deviceInfo)) as? Array<Dictionary<String, String>> != nil {
+            devices =  UserDefaults.standard.array(forKey: self.deviceID(with: self.deviceInfo)) as! Array<Dictionary<String, String>>
+            self.tableView.reloadData()
+        }
+        
     }
     
+    @IBAction func delRecord(_ sender: UIBarButtonItem) {
+        let lockID  = self.deviceID(with: self.deviceInfo)
+        var command :NSString = "003001"
+        command = command.full(withLengthCountBehide: 30)! as NSString
+        BluetoothManager.getInstance()?.sendByteCommand(with: command as String, deviceID: lockID!, sendType: .lock, success: { (data) in
+            
+        }, fail: { (failCode) -> UInt in
+            return 0
+        })
+        
+        
+    }
     func deviceFullID(with infoDic:Dictionary<String, Any>) -> String! {
         let advdic=infoDic[AdvertisementData] as! NSDictionary
         return advdic.object(forKey: "kCBAdvDataLocalName") as! String?
@@ -46,16 +56,32 @@ class LockUnionList: UITableViewController {
     @IBAction func addUnion(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "lockaddunion", sender: nil)
     }
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+   
+    @IBAction func record(_ sender: UIButton) {
+        let deviceIndex = (sender.superview?.superview?.tag)! - 10000
+        var deviceID = (sender.superview?.superview?.viewWithTag(1001) as! UILabel).text! as NSString
+        deviceID = deviceID.substring(from: 7) as NSString
+        var command = "003000" + (devices[deviceIndex]["deviceStatus"]! as NSString ).full(withLengthCount: 3)
+        command.append(NSString.convertMacID(deviceID as String!, reversed: true))
+        command.append("255")
+        
+        BluetoothManager.getInstance()?.sendByteCommand(with: command, deviceID: deviceID as String, sendType: .lock, success: { (data) in
+            
+        }, fail: { (failCode) -> UInt in
+            return 0
+        })
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return devices.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
+        cell.tag = 10000 + indexPath.row
         let deviceID = cell.viewWithTag(1001) as! UILabel
-        let deviceStatus = cell.viewWithTag(1001) as! UILabel
+        let deviceStatus = cell.viewWithTag(1002) as! UILabel
         deviceID.text = devices[indexPath.row]["deviceID"]
         deviceStatus.text = devices[indexPath.row]["deviceStatus"]
         
@@ -89,6 +115,7 @@ class LockUnionList: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let target :LockAddUnionController = segue.destination as! LockAddUnionController
         target.devices = self.devices
+        target.deviceInfo = self.deviceInfo
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

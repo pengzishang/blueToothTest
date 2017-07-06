@@ -162,14 +162,36 @@
 }
 
 
-+(NSString *)convertMacID:(NSString *)MacID
+/**
+ 顺序将MAC转BCD码
+ 如实际地址是1234567890ab，则此处依次填0xab 0x90 0x78 0x56 0x34 0x12 (逆序)
+
+ @param MacID <#MacID description#>
+ @return <#return value description#>
+ */
++ (NSString *)convertMacID:(NSString *)MacID
+{
+    return [NSString convertMacID:MacID reversed:NO];
+}
+
++ (NSString *)convertMacID:(NSString *)MacID reversed:(BOOL)isReversed
 {
     NSString *passTransform=[NSString new];
     MacID=[MacID uppercaseString];
+    NSAssert(MacID.length%2==0, @"MacID错误");
     while (MacID.length>0) {
-        NSString *partofMacID=[MacID substringToIndex:2];
-        MacID =[MacID substringFromIndex:2];
+        NSString *partofMacID = @"";
+        if (isReversed) {//逆序
+            partofMacID = [MacID substringFromIndex:MacID.length-2];
+            MacID =[MacID substringToIndex:MacID.length-2];
+        }
+        else
+        {
+            partofMacID=[MacID substringToIndex:2];
+            MacID =[MacID substringFromIndex:2];
+        }
         
+
         NSString *H_part=[partofMacID substringToIndex:1];
         NSString *L_part=[partofMacID substringFromIndex:1];
         
@@ -196,7 +218,8 @@
     return passTransform;
 }
 
-+(NSString *)ListNameWithPrefix:(NSString *)prefix
+
++ (NSString *)ListNameWithPrefix:(NSString *)prefix
 {
     __block NSString *deviceName=@"未知设备";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"DeviceTypeList" ofType:@"plist"];

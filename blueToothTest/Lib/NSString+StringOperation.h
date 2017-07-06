@@ -61,8 +61,15 @@
 +(NSString *)translateDateToTime:(NSDate *)date;
 
 +(NSString *)convertPassWord:(NSString *)passWord;
-
+/**
+ 顺序将MAC转BCD码
+ 
+ @param MacID <#MacID description#>
+ @return <#return value description#>
+ */
 +(NSString *)convertMacID:(NSString *)MacID;
+
++(NSString *)convertMacID:(NSString *)MacID reversed:(BOOL)isReversed;
 
 +(NSString *)ListNameWithPrefix:(NSString *)prefix;
 

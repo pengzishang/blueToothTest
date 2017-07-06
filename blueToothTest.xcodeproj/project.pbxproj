@@ -17,6 +17,8 @@
 		3C74C91B1EFB7B6E00E51CE4 /* NSString+StringOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C74C9191EFB7B6E00E51CE4 /* NSString+StringOperation.m */; };
 		3C74C91D1EFB7B7700E51CE4 /* DeviceTypeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C74C91C1EFB7B7700E51CE4 /* DeviceTypeList.plist */; };
 		3C7C454B1DE8403200A5718C /* SendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7C454A1DE8403100A5718C /* SendController.swift */; };
+		6446CA4B1F0CCFEC001F1CE5 /* LockUnionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647E5A361F0B3B6A00B5B527 /* LockUnionList.swift */; };
+		6446CA4C1F0CCFF0001F1CE5 /* LockAddUnionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647E5A381F0B3B6A00B5B527 /* LockAddUnionController.swift */; };
 		64DA151B1F0B413F008E76FE /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA151A1F0B408B008E76FE /* LockViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -196,10 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6446CA4C1F0CCFF0001F1CE5 /* LockAddUnionController.swift in Sources */,
 				3C009E681DE8179A002F15BE /* TestController.swift in Sources */,
 				3C7C454B1DE8403200A5718C /* SendController.swift in Sources */,
 				3C009E511DE81510002F15BE /* AppDelegate.m in Sources */,
 				3C009E4E1DE81510002F15BE /* main.m in Sources */,
+				6446CA4B1F0CCFEC001F1CE5 /* LockUnionList.swift in Sources */,
 				3C74C91B1EFB7B6E00E51CE4 /* NSString+StringOperation.m in Sources */,
 				64DA151B1F0B413F008E76FE /* LockViewController.swift in Sources */,
 				3C74C91A1EFB7B6E00E51CE4 /* BluetoothManager.m in Sources */,
@@ -324,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LD2KPD7UX3;
 				INFOPLIST_FILE = blueToothTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -349,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LD2KPD7UX3;
 				INFOPLIST_FILE = blueToothTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

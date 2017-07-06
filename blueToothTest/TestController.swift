@@ -19,12 +19,11 @@ class TestController: UIViewController,UITableViewDataSource,UITableViewDelegate
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: BlueToothMangerDidDiscoverNewItem), object: nil, queue: nil) { (notice) in
             self.devicesArray.append(notice.userInfo as! [String : Any])
             self.mainTableView.reloadData()
-            print(notice.userInfo!)//userinfo内有信息
+//            print(notice.userInfo!)//userinfo内有信息
         }
         
     }
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return devicesArray.count;
     }
